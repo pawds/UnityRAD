@@ -29,6 +29,22 @@ public class CubeControlScript : MonoBehaviour
             rb.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
 
         }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            rb.AddForce(Vector3.back);
+
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            rb.AddForce(Vector3.left);
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            rb.AddForce(Vector3.right);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -52,14 +68,14 @@ public class CubeControlScript : MonoBehaviour
 
 
 
-            //if (collision.gameObject.name == "Victim")
-            //{
-            //    Rigidbody victimRB = collision.gameObject.GetComponent<Rigidbody>();
-            //    if (victimRB != null)
-            //    {
-            //        victimRB.AddExplosionForce(1000, transform.position + Vector3.down, 5);
-            //    }
-            //}
+            if (collision.gameObject.name == "Victim")
+            {
+                Rigidbody victimrb = collision.gameObject.GetComponent<Rigidbody>();
+                if (victimrb != null)
+                {
+                    victimrb.AddExplosionForce(1000, transform.position + Vector3.down, 5);
+                }
+            }
         }
     }
 }
