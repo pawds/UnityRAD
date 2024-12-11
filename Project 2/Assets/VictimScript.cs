@@ -8,7 +8,7 @@ public class VictimScript : MonoBehaviour
     Rigidbody rb;
 
     float explosionRadius = 5;
-    float explosionStrength = 3000;
+    float explosionStrength = 10000;
     
 
 
@@ -16,7 +16,7 @@ public class VictimScript : MonoBehaviour
     {
         print("Bumped !!");
         Renderer renderer = GetComponentInChildren<Renderer>();
-        renderer.material.color = Color.red;
+        renderer.material.color = Color.blue;
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
