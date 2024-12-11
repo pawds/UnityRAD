@@ -20,6 +20,7 @@ public class WinScript : MonoBehaviour
         if (collision.collider.name == "Victim")
         {
             print("cat wrangled");
+            GetComponent<TextDisplay>();
 
         }
     }
