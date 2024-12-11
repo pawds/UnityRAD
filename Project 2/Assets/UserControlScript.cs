@@ -47,35 +47,35 @@ public class CubeControlScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        VictimScript victimScript = collision.gameObject.GetComponent<VictimScript>();
+   //// private void OnCollisionEnter(Collision collision)
+   // //{
+   //     VictimScript victimScript = collision.gameObject.GetComponent<VictimScript>();
 
-        Collider[] allVictims = Physics.OverlapSphere(transform.position + Vector3.down, explosionRadius, (int)explosionStrength);
+   //     Collider[] allVictims = Physics.OverlapSphere(transform.position + Vector3.down, explosionRadius, (int)explosionStrength);
 
-        foreach (Collider collider in allVictims)
+   //     foreach (Collider collider in allVictims)
 
-        {
-            VictimScript newVictim = collider.gameObject.GetComponent<VictimScript>();
+   //     {
+   //         VictimScript newVictim = collider.gameObject.GetComponent<VictimScript>();
 
-            if (newVictim != null)
-            {
-                newVictim.Bump(explosionStrength,
-                        transform.position + Vector3.down, explosionRadius, explosionStrength);
+   //         if (newVictim != null)
+   //         {
+   //             newVictim.Bump(explosionStrength,
+   //                     transform.position + Vector3.down, explosionRadius, explosionStrength);
 
-            }
-
-
+   //         }
 
 
-            if (collision.gameObject.name == "Victim")
-            {
-                Rigidbody victimrb = collision.gameObject.GetComponent<Rigidbody>();
-                if (victimrb != null)
-                {
-                    victimrb.AddExplosionForce(1000, transform.position + Vector3.down, 5);
-                }
-            }
-        }
+
+
+   //         if (collision.gameObject.name == "Victim")
+   //         {
+   //             Rigidbody victimrb = collision.gameObject.GetComponent<Rigidbody>();
+   //             if (victimrb != null)
+   //             {
+   //                 victimrb.AddExplosionForce(1000, transform.position + Vector3.down, 5);
+   //             }
+   //         }
+   //     }
     }
-}
+

@@ -6,11 +6,13 @@ public class ExplosionScript : MonoBehaviour
     public float radius = 5.0F;
     public float power = 100F;
 
+    float jumpForce = 5;
+    float explosionRadius = 5;
+    float explosionStrength = 1000;
 
- 
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
         {
 
     }
@@ -23,14 +25,22 @@ public class ExplosionScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Vector3 explosionPos = transform.position;
-        Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
-        foreach (Collider hit in colliders)
-        {
-            Rigidbody rb = hit.GetComponent<Rigidbody>();
+        print("jhgojyg");
+       // VictimScript victimScript = collision.gameObject.GetComponent<VictimScript>();
 
-            if (rb != null)
-                rb.AddExplosionForce(power, explosionPos, radius, 100F);
+        Collider[] allVictims = Physics.OverlapSphere(transform.position , explosionRadius );
+
+        foreach (Collider collider in allVictims)
+
+        {
+            VictimScript newVictim = collider.gameObject.GetComponent<VictimScript>();
+
+            if (newVictim != null)
+            {
+                newVictim.Bump(explosionStrength,
+                        transform.position + Vector3.down, explosionRadius, explosionStrength);
+
+            }
         }
     }
 
