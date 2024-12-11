@@ -4,11 +4,11 @@ using System.Collections;
 public class ExplosionScript : MonoBehaviour
 {
     public float radius = 5.0F;
-    public float power = 100F;
+    public float power = 1000F;
 
     float jumpForce = 5;
     float explosionRadius = 5;
-    float explosionStrength = 1000;
+    float explosionStrength = 3000;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
