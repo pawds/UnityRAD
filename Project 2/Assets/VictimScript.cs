@@ -16,7 +16,7 @@ public class VictimScript : MonoBehaviour
     {
         print("Bumped !!");
         Renderer renderer = GetComponentInChildren<Renderer>();
-        renderer.material.color = Color.blue;
+        renderer.material.color = Color.magenta;
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {

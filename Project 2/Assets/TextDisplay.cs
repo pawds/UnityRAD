@@ -5,27 +5,30 @@ using System;
 
 public class TextDisplay : MonoBehaviour
 {
-    public Text myText;
+    Text myText;
     private bool condition = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         myText = GetComponent<Text>();
-        myText.gameObject.SetActive(false);
+    
+        myText.text = "hfghfghgfhgf";
         
     }
 
     //Update is called once per frame
-    void OnCollisionEnter(Collision collision)
+
+
+    internal void turnOn()
     {
-        if (collision.collider.name == "Victim")
-        {
-            myText.gameObject.SetActive(true);
-        }
-        else
-        {
-            myText.gameObject.SetActive(false);
-        }
+        print("bong");
+   
+        myText.text = "Cat Wrangled!";
+    }
+
+    internal void turnOff()
+    {
+        myText.text = "Hello";
     }
 }
